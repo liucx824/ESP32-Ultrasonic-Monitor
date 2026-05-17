@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "author": "liucx824",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi/esp32-devkit-v1",
+      "id": "esp32",
+      "top": 0,
+      "left": 0,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi/hc-sr04",
+      "id": "hcsr04",
+      "top": -50,
+      "left": 400,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi/lcd1602",
+      "id": "lcd",
+      "top": 200,
+      "left": -50,
+      "attrs": {
+        "i2c": "true",
+        "address": "0x27"
+      }
+    }
+  ],
+  "connections": [
+    ["esp32:5", "hcsr04:TRIG", "blue", ""],
+    ["esp32:18", "hcsr04:ECHO", "blue", ""],
+    ["esp32:VIN", "hcsr04:VCC", "red", ""],
+    ["esp32:GND.1", "hcsr04:GND", "black", ""],
+    ["esp32:21", "lcd:SDA", "green", ""],
+    ["esp32:22", "lcd:SCL", "green", ""],
+    ["esp32:VIN", "lcd:VCC", "red", ""],
+    ["esp32:GND.2", "lcd:GND", "black", ""]
+  ]
+}
